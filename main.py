@@ -61,12 +61,12 @@ def addStudentData(row):
 
     save = driver.find_element_by_name("save")
     save.click()
-    print(row['firstName'])
+    print(row['firstName'] + " " + row['lastName'] + " " + "added.")
     time.sleep(2)
     addAnother = driver.find_element_by_name("addAnother")
     addAnother.click()
 
-def loopCsv():
+def mainLoop():
     with open('importData.csv') as csvFile:
         reader = csv.DictReader(csvFile)
         for row in reader:
@@ -77,4 +77,4 @@ def loopCsv():
 
 login()
 goToAddPersonMenu()
-loopCsv()
+mainLoop()
