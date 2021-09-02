@@ -25,7 +25,6 @@ share/python-wheels/
 .installed.cfg
 *.egg
 *.cfg
-*.csv
 *.DS_Store
 MANIFEST
 
