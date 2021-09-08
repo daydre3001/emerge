@@ -26,6 +26,7 @@ share/python-wheels/
 *.egg
 *.cfg
 *.DS_Store
+chromedriver
 MANIFEST
 
 # PyInstaller
