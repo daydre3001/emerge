@@ -59,7 +59,7 @@ def addStudentData(row):
 
     save = driver.find_element_by_name("save")
     save.click()
-    print(row['firstName'] + " " + row['lastName'] + " " + "added.")
+    print("{fName} {lName} has been added".format(fName=row['firstName'], lName=row['lastName']))
     time.sleep(2)
     addAnother = driver.find_element_by_name("addAnother")
     addAnother.click()
