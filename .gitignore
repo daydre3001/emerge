@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+#Credentials
+credentials.py
+
+#CSV files
+importData Template.csv
+
 # Distribution / packaging
 .Python
 build/
@@ -140,3 +146,7 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+emergeVenv/Emerge Import Template - ATL - ATL 202109.csv
+importData.csv
+importData.csv
+chromedriver

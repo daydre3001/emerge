@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
 import csv
+import credentials
 
 options = Options()
 options.headless = True
@@ -14,10 +15,10 @@ driver.get(url)
 def login():
     login = driver.find_element_by_name("username")
     login.clear()
-    login.send_keys("asanchez")
+    login.send_keys(credentials.username)
     password = driver.find_element_by_name("password")
     password.clear()
-    password.send_keys("bndgh56p")
+    password.send_keys(credentials.password)
     password.send_keys(Keys.RETURN)
 
 def goToAddPersonMenu():
@@ -49,8 +50,9 @@ def addStudentData(row):
     hotStampNumber = driver.find_element_by_id("friendlynumber0")
     hotStampNumber.send_keys(row['hotStamp'])
     hotStampNumber.send_keys(Keys.TAB)
+    time.sleep(2)
 
-    accessLevel = "Miami Student"
+    accessLevel = "ATL Student Access level"
     select = Select(driver.find_element_by_id("accessLevel_available"))
     select.select_by_visible_text(accessLevel)
     addAccessLevel = driver.find_element_by_id("accessLevel_add")
