@@ -52,12 +52,22 @@ def addStudentData(row):
     hotStampNumber.send_keys(Keys.TAB)
     time.sleep(2)
 
-    select = Select(driver.find_element_by_id("accessLevel_available"))
-    select.select_by_visible_text(row['accessLevel'])
-    addAccessLevel = driver.find_element_by_id("accessLevel_add")
-    addAccessLevel.click()
-    time.sleep(2)
-
+    accesslevel = row['accessLevel']
+    if accesslevel.find(','):
+        access = accesslevel.split(',')
+        for levels in access:
+            select = Select(driver.find_element_by_id("accessLevel_available"))
+            select.select_by_visible_text(levels)
+            addAccessLevel = driver.find_element_by_id("accessLevel_add")
+            addAccessLevel.click()
+            time.sleep(1)
+    else:
+        select = Select(driver.find_element_by_id("accessLevel_available"))
+        select.select_by_visible_text(accesslevel)
+        addAccessLevel = driver.find_element_by_id("accessLevel_add")
+        addAccessLevel.click()
+        time.sleep(1)
+    
     save = driver.find_element_by_name("save")
     save.click()
     print("{fName} {lName} has been added".format(fName=row['firstName'], lName=row['lastName']))
@@ -66,7 +76,7 @@ def addStudentData(row):
     addAnother.click()
 
 def mainLoop():
-    with open('importData.csv') as csvFile:
+    with open('importData2.csv') as csvFile:
         reader = csv.DictReader(csvFile)
         for row in reader:
             addStudentData(row)
