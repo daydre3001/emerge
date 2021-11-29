@@ -9,7 +9,7 @@ import credentials
 options = Options()
 options.headless = True
 driver = webdriver.Chrome('./chromedriver')
-url = "http://192.168.161.240/login/"
+url = credentials.url
 driver.get(url)
 
 def login():
