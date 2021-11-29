@@ -52,9 +52,8 @@ def addStudentData(row):
     hotStampNumber.send_keys(Keys.TAB)
     time.sleep(2)
 
-    accessLevel = "ATL Student Access level"
     select = Select(driver.find_element_by_id("accessLevel_available"))
-    select.select_by_visible_text(accessLevel)
+    select.select_by_visible_text(row['accessLevel'])
     addAccessLevel = driver.find_element_by_id("accessLevel_add")
     addAccessLevel.click()
     time.sleep(2)
