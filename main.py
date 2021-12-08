@@ -76,7 +76,7 @@ def addStudentData(row):
     addAnother.click()
 
 def mainLoop():
-    with open('importData2.csv') as csvFile:
+    with open('importData.csv') as csvFile:
         reader = csv.DictReader(csvFile)
         for row in reader:
             addStudentData(row)
