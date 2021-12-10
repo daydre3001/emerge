@@ -3,9 +3,11 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
+import chromedriver_autoinstaller
 import csv
 import credentials
 
+chromedriver_autoinstaller.install()
 options = Options()
 options.headless = True
 driver = webdriver.Chrome('./chromedriver')
