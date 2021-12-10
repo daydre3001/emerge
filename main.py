@@ -1,4 +1,5 @@
 import time
+import os
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
@@ -13,6 +14,7 @@ options.headless = True
 driver = webdriver.Chrome('./chromedriver')
 url = credentials.url
 driver.get(url)
+dataFile = ""
 
 def login():
     login = driver.find_element_by_name("username")
@@ -78,13 +80,22 @@ def addStudentData(row):
     addAnother.click()
 
 def mainLoop():
-    with open('importData.csv') as csvFile:
-        reader = csv.DictReader(csvFile)
-        for row in reader:
-            addStudentData(row)
-            time.sleep(5)
-        print("All Done")
-        driver.quit()
+    for file in os.listdir():
+        if ".csv" in file:
+            dataFile = file
+        else:
+            pass
+
+    try:
+        with open(dataFile) as csvFile:
+            reader = csv.DictReader(csvFile)
+            for row in reader:
+                addStudentData(row)
+                time.sleep(5)
+            print("All Done")
+            driver.quit()
+    except:
+        print("An error occurred")
 
 login()
 goToAddPersonMenu()
