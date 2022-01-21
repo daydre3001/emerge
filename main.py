@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import Select
 import chromedriver_autoinstaller
 import csv
 import credentials
+import sys
 
 #chromedriver_autoinstaller.install()
 options = Options()
@@ -84,8 +85,7 @@ def mainLoop():
         if ".csv" in file:
             dataFile = file
         else:
-            print("No CSV file found in directory!")
-            break
+            sys.exit("No CSV file found in directory!")
 
     try:
         with open(dataFile) as csvFile:
