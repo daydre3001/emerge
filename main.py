@@ -95,7 +95,7 @@ def mainLoop():
             print("All Done")
             driver.quit()
     except:
-        print("An error occurred")
+        print("An error on {} occurred".format(row))
 
 login()
 goToAddPersonMenu()
