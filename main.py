@@ -84,7 +84,8 @@ def mainLoop():
         if ".csv" in file:
             dataFile = file
         else:
-            pass
+            print("No CSV file found in directory!")
+            break
 
     try:
         with open(dataFile) as csvFile:
