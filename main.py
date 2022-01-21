@@ -50,11 +50,11 @@ def addStudentData(row):
 
     addNewHotStamp = driver.find_element_by_id("addButton")
     addNewHotStamp.click()
-    time.sleep(2)
+    time.sleep(1)
     hotStampNumber = driver.find_element_by_id("friendlynumber0")
     hotStampNumber.send_keys(row['hotStamp'])
     hotStampNumber.send_keys(Keys.TAB)
-    time.sleep(2)
+    time.sleep(1)
 
     accesslevel = row['accessLevel']
     if accesslevel.find(','):
@@ -75,7 +75,7 @@ def addStudentData(row):
     save = driver.find_element_by_name("save")
     save.click()
     print("{fName} {lName} has been added".format(fName=row['firstName'], lName=row['lastName']))
-    time.sleep(2)
+    time.sleep(1)
     addAnother = driver.find_element_by_name("addAnother")
     addAnother.click()
 
@@ -91,7 +91,7 @@ def mainLoop():
             reader = csv.DictReader(csvFile)
             for row in reader:
                 addStudentData(row)
-                time.sleep(5)
+                time.sleep(2)
             print("All Done")
             driver.quit()
     except:
