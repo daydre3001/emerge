@@ -103,7 +103,7 @@ def mainLoop():
                 time.sleep(2)
             print("All Done")
             driver.quit()
-    except Exception as e:
+    except Exception as e: #this is kinda jank!
         print(e.message)
 
 mainLoop()
