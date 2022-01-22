@@ -29,12 +29,12 @@ def login():
 def goToAddPersonMenu():
     driver.switch_to.frame("mainFrame")
     driver.switch_to.frame(0)
-    adminMenu = driver.find_element_by_xpath('//*[@id="buttonDiv"]/a[3]').click()
+    driver.find_element_by_xpath('//*[@id="buttonDiv"]/a[3]').click()
     time.sleep(3)
     driver.switch_to.default_content()
     driver.switch_to.frame('mainFrame')
     driver.switch_to.frame(1)
-    addPeopleMenu = driver.find_element_by_xpath('//*[@id="menus"]/table/tbody/tr[2]/td[1]/div[2]/ul/li[1]/a').click()
+    driver.find_element_by_xpath('//*[@id="menus"]/table/tbody/tr[2]/td[1]/div[2]/ul/li[1]/a').click()
     time.sleep(3)
 
 def addStudentData(row):
@@ -85,7 +85,15 @@ def mainLoop():
         if ".csv" in file:
             dataFile = file
         else:
-            sys.exit("No CSV file found in directory!")
+            pass
+
+    if ".csv" not in dataFile:
+        print(dataFile)
+        driver.quit()
+        sys.exit("No CSV file found")
+
+    login()
+    goToAddPersonMenu()
 
     try:
         with open(dataFile) as csvFile:
@@ -98,6 +106,4 @@ def mainLoop():
     except:
         print("An error on {} occurred".format(row))
 
-login()
-goToAddPersonMenu()
 mainLoop()
