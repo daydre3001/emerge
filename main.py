@@ -103,7 +103,7 @@ def mainLoop():
                 time.sleep(2)
             print("All Done")
             driver.quit()
-    except:
-        print("An error on {} occurred".format(row))
+    except Exception as e:
+        print(e.message)
 
 mainLoop()
