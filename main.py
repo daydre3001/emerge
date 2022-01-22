@@ -13,8 +13,6 @@ import sys
 options = Options()
 options.headless = True
 driver = webdriver.Chrome('./chromedriver')
-url = credentials.url
-driver.get(url)
 dataFile = ""
 
 def login():
@@ -92,6 +90,8 @@ def mainLoop():
         driver.quit()
         sys.exit("No CSV file found")
 
+    url = credentials.url
+    driver.get(url)
     login()
     goToAddPersonMenu()
 
