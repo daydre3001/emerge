@@ -9,7 +9,7 @@ import csv
 import credentials
 import sys
 
-#chromedriver_autoinstaller.install()
+chromedriver_autoinstaller.install()
 options = Options()
 options.headless = True
 driver = webdriver.Chrome('./chromedriver')
