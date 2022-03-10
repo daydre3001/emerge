@@ -68,8 +68,6 @@ def addStudentData(row):
         select = Select(driver.find_element_by_id("accessLevel_available"))
         select.select_by_visible_text(accesslevel)
         addAccessLevel = driver.find_element_by_id("accessLevel_add")
-        addAccessLevel.click()
-        time.sleep(1)
     
     save = driver.find_element_by_name("save")
     save.click()
@@ -90,8 +88,7 @@ def mainLoop():
         driver.quit()
         sys.exit("No CSV file found")
 
-    url = credentials.url
-    driver.get(url)
+    driver.get(credentials.url)
     login()
     goToAddPersonMenu()
 
