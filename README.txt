@@ -1,4 +1,4 @@
-main.py will be looking for data in a .csv file. Keep only one .csv file in the directory.
+main.py will look for a .csv file, due to this, keep only one .csv file in the root directory.
 
 Credentials and url for emeger are in the credentials.py file.
 
