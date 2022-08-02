@@ -12,7 +12,7 @@ import sys
 chromedriver_autoinstaller.install()
 options = Options()
 options.headless = True
-driver = webdriver.Chrome('./chromedriver')
+driver = webdriver.Chrome()
 dataFile = ""
 
 def login():
